@@ -76,7 +76,7 @@ window.addEventListener("resize", () => {
   renderer.setSize(sizes.width, sizes.height);
 });
 
-//RE-render responsive camera
+///RE-render responsive camera
 const loop = () => {
   material.uniforms.uTime.value += 0.005; //uTime value for shaders
   controls.update();
