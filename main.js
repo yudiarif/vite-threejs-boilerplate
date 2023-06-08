@@ -6,6 +6,9 @@ import "./style.css";
 
 import vertexShader from "./src/shaders/vertex.glsl";
 import fragmentShader from "./src/shaders/fragment.glsl";
+import GUI from "lil-gui";
+
+const gui = new GUI();
 
 ////SCENE
 const scene = new THREE.Scene();
@@ -20,8 +23,6 @@ const material = new THREE.ShaderMaterial({
 
   uniforms: { uTime: { value: 0 } },
 });
-
-console.log(material.uniforms.uTime);
 
 const mesh = new THREE.Mesh(geometry, material);
 scene.add(mesh);
@@ -85,3 +86,8 @@ const loop = () => {
   window.requestAnimationFrame(loop);
 };
 loop();
+
+// GUI
+const cameraFolder = gui.addFolder("camera");
+cameraFolder.add(camera.position, "z", 0, 10);
+cameraFolder.open();
